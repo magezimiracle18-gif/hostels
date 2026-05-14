@@ -63,14 +63,14 @@ $hostels = $result->fetch_all(MYSQLI_ASSOC);
 // Demo data when DB is empty
 $use_demo = count($hostels) === 0 && empty($search) && empty($type) && !$available;
 $demo_hostels = [
-    ['id'=>1,'hostel_name'=>'Pearl Student Hostel','location'=>'Kakoba, 0.3km from MUST','room_type'=>'single','price'=>250000,'image'=>'','description'=>'Modern single rooms with study area, 24/7 security.','availability'=>5],
-    ['id'=>2,'hostel_name'=>'Unity Residence','location'=>'Ruharo, 0.5km from MUST','room_type'=>'shared','price'=>180000,'image'=>'','description'=>'Affordable shared rooms in a friendly student community.','availability'=>8],
-    ['id'=>3,'hostel_name'=>'Comfort Suites','location'=>'Kakoba, 0.4km from MUST','room_type'=>'self-contained','price'=>450000,'image'=>'','description'=>'Fully self-contained suites with private bathroom and kitchen.','availability'=>3],
-    ['id'=>4,'hostel_name'=>'Nile View Hostel','location'=>'Kamukuzi, 0.6km from MUST','room_type'=>'single','price'=>220000,'image'=>'','description'=>'Clean single rooms with Wi-Fi and study lounge.','availability'=>0],
-    ['id'=>5,'hostel_name'=>'Campus Gate Residence','location'=>'Kakoba, 0.2km from MUST','room_type'=>'shared','price'=>150000,'image'=>'','description'=>'Very close to campus with affordable shared accommodation.','availability'=>12],
-    ['id'=>6,'hostel_name'=>'Green Valley Hostel','location'=>'Biharwe, 0.8km from MUST','room_type'=>'self-contained','price'=>380000,'image'=>'','description'=>'Spacious self-contained rooms in a quiet neighbourhood.','availability'=>6],
-    ['id'=>7,'hostel_name'=>'Sunrise Quarters','location'=>'Ruharo, 0.7km from MUST','room_type'=>'single','price'=>280000,'image'=>'','description'=>'Bright, airy single rooms with reliable electricity.','availability'=>4],
-    ['id'=>8,'hostel_name'=>'Lake View Hostel','location'=>'Kakoba, 1.0km from MUST','room_type'=>'shared','price'=>160000,'image'=>'','description'=>'Comfortable shared rooms with great community atmosphere.','availability'=>10],
+    ['id'=>1,'hostel_name'=>'Pearl Student Hostel','location'=>'Kakoba, 0.3km from MUST','room_type'=>'single','price'=>850000,'image'=>'image1.jpg','description'=>'Modern single rooms with study area, 24/7 security.','availability'=>5],
+    ['id'=>2,'hostel_name'=>'Unity Residence','location'=>'Ruharo, 0.5km from MUST','room_type'=>'shared','price'=>900000,'image'=>'image2.jpg.png','description'=>'Affordable shared rooms in a friendly student community.','availability'=>8],
+    ['id'=>3,'hostel_name'=>'Comfort Suites','location'=>'Kakoba, 0.4km from MUST','room_type'=>'self-contained','price'=>1200000,'image'=>'image3.jpg.png','description'=>'Fully self-contained suites with private bathroom and kitchen.','availability'=>3],
+    ['id'=>4,'hostel_name'=>'Nile View Hostel','location'=>'Kamukuzi, 0.6km from MUST','room_type'=>'single','price'=>950000,'image'=>'image4.jpeg','description'=>'Clean single rooms with Wi-Fi and study lounge.','availability'=>0],
+    ['id'=>5,'hostel_name'=>'Campus Gate Residence','location'=>'Kakoba, 0.2km from MUST','room_type'=>'shared','price'=>880000,'image'=>'image5.jpg','description'=>'Very close to campus with affordable shared accommodation.','availability'=>12],
+    ['id'=>6,'hostel_name'=>'Green Valley Hostel','location'=>'Biharwe, 0.8km from MUST','room_type'=>'self-contained','price'=>1150000,'image'=>'image6.jpg','description'=>'Spacious self-contained rooms in a quiet neighbourhood.','availability'=>6],
+    ['id'=>7,'hostel_name'=>'Sunrise Quarters','location'=>'Ruharo, 0.7km from MUST','room_type'=>'single','price'=>920000,'image'=>'image7.jpg','description'=>'Bright, airy single rooms with reliable electricity.','availability'=>4],
+    ['id'=>8,'hostel_name'=>'Lake View Hostel','location'=>'Kakoba, 1.0km from MUST','room_type'=>'shared','price'=>860000,'image'=>'image8.jpg','description'=>'Comfortable shared rooms with great community atmosphere.','availability'=>10],
 ];
 if ($use_demo) $hostels = $demo_hostels;
 
@@ -145,9 +145,9 @@ include 'includes/head.php';
                     <div class="filter-group">
                         <div class="filter-group-label">Quick Price</div>
                         <div style="display:flex;flex-wrap:wrap;gap:6px;">
-                            <a href="hostels.php?max_price=200000<?= $type ? '&type='.$type : '' ?>" class="badge badge-blue" style="cursor:pointer;">Under 200k</a>
-                            <a href="hostels.php?max_price=400000<?= $type ? '&type='.$type : '' ?>" class="badge badge-blue" style="cursor:pointer;">Under 400k</a>
-                            <a href="hostels.php?max_price=600000<?= $type ? '&type='.$type : '' ?>" class="badge badge-blue" style="cursor:pointer;">Under 600k</a>
+                            <a href="hostels.php?max_price=900000<?= $type ? '&type='.$type : '' ?>" class="badge badge-blue" style="cursor:pointer;">Under 900k</a>
+                            <a href="hostels.php?max_price=1100000<?= $type ? '&type='.$type : '' ?>" class="badge badge-blue" style="cursor:pointer;">Under 1.1M</a>
+                            <a href="hostels.php?max_price=1300000<?= $type ? '&type='.$type : '' ?>" class="badge badge-blue" style="cursor:pointer;">Under 1.3M</a>
                         </div>
                     </div>
 
@@ -182,9 +182,11 @@ include 'includes/head.php';
                         <div class="hostel-card">
                             <div class="hostel-card-img">
                                 <?php if (!empty($h['image']) && file_exists('uploads/hostels/' . $h['image'])): ?>
-                                    <img src="<?= APP_URL ?>/uploads/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>">
+                                    <img src="<?= APP_URL ?>/uploads/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                <?php elseif (!empty($h['image']) && file_exists('assets/img/hostels/' . $h['image'])): ?>
+                                    <img src="<?= APP_URL ?>/assets/img/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                                 <?php else: ?>
-                                    <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/building.svg" alt="Hostel">
+                                    <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/building.svg" alt="Hostel" style="width: 3.5rem; height: auto;">
                                 <?php endif; ?>
                             </div>
                             <div class="hostel-card-body">

@@ -58,9 +58,9 @@ INSERT INTO `users` (`fullname`, `email`, `phone`, `password`, `role`, `created_
 ('Demo Student', 'student@must.ac.ug', '+256 700 000 002', '$2y$10$wHfz7mFZLzIZrK0Ojk4G8OuupC7FLjzGQGzq03ziW4QRxN9v0s6B2', 'student', NOW());
 
 INSERT INTO `hostels` (`hostel_name`,`location`,`room_type`,`price`,`availability`,`description`,`contact`,`image`,`created_at`) VALUES
-('Pearl Student Hostel','Kakoba, 0.3km from MUST','single',250000,5,'Modern single rooms with study area, 24/7 security.','+256 700 111 222',NULL,NOW()),
-('Unity Residence','Ruharo, 0.5km from MUST','shared',180000,8,'Affordable shared rooms in a friendly student community.','+256 700 333 444',NULL,NOW()),
-('Comfort Suites','Kakoba, 0.4km from MUST','self-contained',450000,3,'Fully self-contained suites with private bathroom and kitchen.','+256 701 555 666',NULL,NOW());
+('Pearl Student Hostel','Kakoba, 0.3km from MUST','single',850000,5,'Modern single rooms with study area, 24/7 security.','+256 700 111 222','image1.jpg',NOW()),
+('Unity Residence','Ruharo, 0.5km from MUST','shared',900000,8,'Affordable shared rooms in a friendly student community.','+256 700 333 444','image2.jpg.png',NOW()),
+('Comfort Suites','Kakoba, 0.4km from MUST','self-contained',1200000,3,'Fully self-contained suites with private bathroom and kitchen.','+256 701 555 666','image3.jpg.png',NOW());
 
 -- Notes:
 -- The sample password hash above is a bcrypt hash for `admin123`.

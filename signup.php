@@ -75,7 +75,7 @@ include 'includes/head.php';
             <div class="nav-brand-icon" style="width:50px;height:50px;font-size:22px;border-radius:14px;margin:0 auto 10px;">M</div>
         </div>
         <h1 class="auth-title">Create Account</h1>
-        <p class="auth-subtitle">Join MUST Hostel Finder and find your ideal room</p>
+        <p class="auth-subtitle">Join Hostel Mate and find your ideal room</p>
 
         <?php if (!empty($errors)): ?>
             <div class="alert alert-error">
@@ -132,3 +132,4 @@ include 'includes/head.php';
 <?php include 'includes/footer.php'; ?>
 </body>
 </html>
+

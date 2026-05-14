@@ -580,10 +580,20 @@ textarea.form-control {
     color: var(--primary-light);
 }
 
-.hostel-card-img img {
+.hostel-card-img img,
+.hero-card-img img,
+.detail-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.hostel-card-img img.icon-svg,
+.hero-card-img img.icon-svg,
+.detail-img img.icon-svg {
+    width: 3.5rem;
+    height: auto;
+    object-fit: contain;
 }
 
 .hostel-card-body {
@@ -919,8 +929,6 @@ textarea.form-control {
 .feature-icon img,
 .empty-state-icon img,
 .booking-card-icon img,
-.hero-card-img img,
-.hostel-card-img img,
 .info-row img,
 .dash-card-title img,
 .section-tag img,

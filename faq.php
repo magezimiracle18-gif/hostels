@@ -16,7 +16,7 @@ include 'includes/head.php';
             <a href="<?= APP_URL ?>/index.php">Home</a> <span>›</span> FAQ
         </div>
         <h1>Frequently Asked Questions</h1>
-        <p>Find answers to common questions about MUST Hostel Finder</p>
+        <p>Find answers to common questions about Hostel Mate</p>
     </div>
 </div>
 
@@ -146,7 +146,7 @@ include 'includes/head.php';
                     </div>
                     <div class="faq-answer" style="display: none; padding: 20px; background: white; border-top: 1px solid #e5e7eb;">
                         <p style="margin: 0; color: #666; line-height: 1.8;">
-                            No, listing your hostel on MUST Hostel Finder is completely free. We believe in supporting student housing 
+                            No, listing your hostel on Hostel Mate is completely free. We believe in supporting student housing 
                             without adding extra costs for hostel owners.
                         </p>
                     </div>
@@ -210,7 +210,7 @@ include 'includes/head.php';
                     </div>
                     <div class="faq-answer" style="display: none; padding: 20px; background: white; border-top: 1px solid #e5e7eb;">
                         <p style="margin: 0; color: #666; line-height: 1.8;">
-                            Currently, MUST Hostel Finder focuses on accommodation near Mbarara University of Science and Technology. 
+                            Currently, Hostel Mate focuses on accommodation near Mbarara University of Science and Technology. 
                             We're planning to expand to other universities in the future.
                         </p>
                     </div>
@@ -262,3 +262,4 @@ function toggleFAQ(element) {
 </script>
 </body>
 </html>
+

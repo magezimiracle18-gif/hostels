@@ -11,7 +11,7 @@
                 <div class="nav-brand">
                     <div class="nav-brand-icon">M</div>
                     <div class="nav-brand-text" style="color:white;">
-                        MUST Hostel Finder
+                        Hostel Mate
                         <span>Mbarara University</span>
                     </div>
                 </div>
@@ -62,8 +62,9 @@
         </div>
 
         <div class="footer-bottom">
-            <span>© <?= date('Y') ?> MUST Hostel Finder. All rights reserved.</span>
+            <span>© <?= date('Y') ?> Hostel Mate. All rights reserved.</span>
             <span>Built for Mbarara University of Science and Technology</span>
         </div>
     </div>
 </footer>
+

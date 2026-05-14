@@ -1,6 +1,6 @@
 <?php
 /* ================================================
-   index.php - MUST Hostel Finder Landing Page
+   index.php - Hostel Mate Landing Page
    ================================================ */
 require_once 'config.php';
 $page_title = 'Find Student Hostels Near MUST Campus';
@@ -76,15 +76,15 @@ if ($total_bookings < 5)  $total_bookings = 180;
                 <div class="hero-card-bg"></div>
                 <div class="hero-card-main">
                     <div class="hero-card-img">
-                    <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/building.svg" alt="Hostel">
-                </div>
+                        <img src="<?= APP_URL ?>/assets/img/hostels/image1.jpg" alt="Hostel" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
                     <div class="hero-card-body">
                         <div class="hero-card-title">Pearl Hostel</div>
                         <div class="hero-card-meta">
                             <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/map-pin.svg" alt="Location"> 0.3 km from MUST Gate
                         </div>
                         <div style="display:flex;justify-content:space-between;align-items:center;">
-                            <span class="hero-card-price">UGX 250,000 / sem</span>
+                            <span class="hero-card-price">UGX 850,000 / sem</span>
                             <span class="badge badge-green">Available</span>
                         </div>
                     </div>
@@ -117,10 +117,10 @@ if ($total_bookings < 5)  $total_bookings = 180;
                 <label>Max Price (UGX)</label>
                 <select name="max_price" class="form-control">
                     <option value="">Any Price</option>
-                    <option value="200000">Under 200,000</option>
-                    <option value="400000">Under 400,000</option>
-                    <option value="600000">Under 600,000</option>
+                    <option value="900000">Under 900,000</option>
                     <option value="1000000">Under 1,000,000</option>
+                    <option value="1100000">Under 1,100,000</option>
+                    <option value="1300000">Under 1,300,000</option>
                 </select>
             </div>
             <div class="search-group" style="max-width:180px;">
@@ -190,17 +190,21 @@ if ($total_bookings < 5)  $total_bookings = 180;
             <div class="hostels-grid">
                 <?php
                 $demo = [
-                    ['Pearl Student Hostel',   'Kakoba, 0.3km from MUST',  'Single Room',       250000, 'building', true],
-                    ['Unity Residence',        'Ruharo, 0.5km from MUST',  'Shared Room',       180000, 'building', true],
-                    ['Comfort Suites',         'Kakoba, 0.4km from MUST',  'Self-Contained',    450000, 'building', true],
-                    ['Nile View Hostel',       'Kamukuzi, 0.6km from MUST','Single Room',       220000, 'building', false],
-                    ['Campus Gate Residence',  'Kakoba, 0.2km from MUST',  'Shared Room',       150000, 'building', true],
-                    ['Green Valley Hostel',    'Biharwe, 0.8km from MUST', 'Self-Contained',    380000, 'building', true],
+                    ['Pearl Student Hostel',   'Kakoba, 0.3km from MUST',  'Single Room',       850000, 'image1.jpg', true],
+                    ['Unity Residence',        'Ruharo, 0.5km from MUST',  'Shared Room',       900000, 'image2.jpg.png', true],
+                    ['Comfort Suites',         'Kakoba, 0.4km from MUST',  'Self-Contained',    1200000, 'image3.jpg.png', true],
+                    ['Nile View Hostel',       'Kamukuzi, 0.6km from MUST','Single Room',       950000, 'image4.jpeg', false],
+                    ['Campus Gate Residence',  'Kakoba, 0.2km from MUST',  'Shared Room',       880000, 'image5.jpg', true],
+                    ['Green Valley Hostel',    'Biharwe, 0.8km from MUST', 'Self-Contained',    1150000, 'image6.jpg', true],
                 ];
                 foreach ($demo as $h): ?>
                 <div class="hostel-card">
                     <div class="hostel-card-img">
-                        <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/<?= sanitize($h[4]) ?>.svg" alt="Hostel">
+                        <?php if (file_exists('assets/img/hostels/' . $h[4])): ?>
+                            <img src="<?= APP_URL ?>/assets/img/hostels/<?= sanitize($h[4]) ?>" alt="<?= sanitize($h[0]) ?>" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <?php else: ?>
+                            <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/building.svg" alt="Hostel" style="width: 3.5rem; height: auto;">
+                        <?php endif; ?>
                     </div>
                     <div class="hostel-card-body">
                         <div class="hostel-card-badges">
@@ -225,9 +229,11 @@ if ($total_bookings < 5)  $total_bookings = 180;
                 <div class="hostel-card">
                     <div class="hostel-card-img">
                         <?php if (!empty($h['image']) && file_exists('uploads/hostels/' . $h['image'])): ?>
-                            <img src="<?= APP_URL ?>/uploads/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>">
+                            <img src="<?= APP_URL ?>/uploads/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <?php elseif (!empty($h['image']) && file_exists('assets/img/hostels/' . $h['image'])): ?>
+                            <img src="<?= APP_URL ?>/assets/img/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                         <?php else: ?>
-                            <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/building.svg" alt="Hostel">
+                            <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/building.svg" alt="Hostel" style="width: 3.5rem; height: auto;">
                         <?php endif; ?>
                     </div>
                     <div class="hostel-card-body">
@@ -324,3 +330,4 @@ if ($total_bookings < 5)  $total_bookings = 180;
 <?php include 'includes/footer.php'; ?>
 </body>
 </html>
+

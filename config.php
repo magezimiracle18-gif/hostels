@@ -1,7 +1,7 @@
 <?php
 /* ================================================
    config.php - Database Configuration
-   MUST Hostel Finder System
+   Hostel Mate System
    ================================================ */
 
 // --- Database Settings (change for your XAMPP setup) ---
@@ -12,7 +12,7 @@ define('DB_NAME',     'must_hostelfinder');
 define('DB_CHARSET',  'utf8mb4');
 
 // --- Application Settings ---
-define('APP_NAME',    'MUST Hostel Finder');
+define('APP_NAME',    'Hostel Mate');
 define('APP_URL',     'http://localhost/hostels');
 define('APP_VERSION', '1.0.0');
 
@@ -110,3 +110,4 @@ function timeAgo($datetime) {
     if ($diff->i > 0)  return $diff->i . 'm ago';
     return 'Just now';
 }
+

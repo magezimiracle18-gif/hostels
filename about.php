@@ -1,6 +1,6 @@
 <?php
 /* ================================================
-   about.php - About MUST Hostel Finder
+   about.php - About Hostel Mate
    ================================================ */
 require_once 'config.php';
 $page_title = 'About Us';
@@ -27,7 +27,7 @@ include 'includes/head.php';
         <div class="breadcrumb">
             <a href="<?= APP_URL ?>/index.php">Home</a> <span>›</span> About
         </div>
-        <h1>About MUST Hostel Finder</h1>
+        <h1>About Hostel Mate</h1>
         <p>Connecting students with safe, affordable accommodation near campus</p>
     </div>
 </div>
@@ -41,7 +41,7 @@ include 'includes/head.php';
                 <h2>Our Story</h2>
             </div>
             <p style="font-size: 1.1em; line-height: 1.8; color: #555; margin-bottom: 20px;">
-                MUST Hostel Finder was created to solve a real problem: finding quality student accommodation in Mbarara 
+                Hostel Mate was created to solve a real problem: finding quality student accommodation in Mbarara 
                 is challenging, time-consuming, and often inefficient. Students waste countless hours searching through 
                 scattered listings, making phone calls, and visiting properties individually.
             </p>
@@ -198,3 +198,4 @@ include 'includes/head.php';
 <?php include 'includes/footer.php'; ?>
 </body>
 </html>
+

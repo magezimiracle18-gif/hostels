@@ -20,9 +20,9 @@ $h     = $stmt->get_result()->fetch_assoc();
 // Demo hostel if DB empty
 if (!$h) {
     $demo_data = [
-        1=>['id'=>1,'hostel_name'=>'Pearl Student Hostel','location'=>'Kakoba, 0.3km from MUST Gate','room_type'=>'single','price'=>250000,'image'=>'','description'=>'Pearl Student Hostel offers clean, modern single rooms ideal for focused students. Each room comes with a study desk, wardrobe, and secure lock. 24/7 security guard on site. Located just a 5-minute walk from the main MUST gate.','availability'=>5,'contact'=>'+256 700 111 222'],
-        2=>['id'=>2,'hostel_name'=>'Unity Residence','location'=>'Ruharo, 0.5km from MUST','room_type'=>'shared','price'=>180000,'image'=>'','description'=>'Unity Residence offers affordable shared rooms for two students. A great community feel with common sitting area, shared bathrooms, and reliable water supply. Perfect for students on a budget.','availability'=>8,'contact'=>'+256 700 333 444'],
-        3=>['id'=>3,'hostel_name'=>'Comfort Suites','location'=>'Kakoba, 0.4km from MUST','room_type'=>'self-contained','price'=>450000,'image'=>'','description'=>'Fully self-contained suites with en-suite bathroom, private kitchen space, and living area. Ideal for students who want independence and privacy. Includes electricity and water.','availability'=>3,'contact'=>'+256 701 555 666'],
+        1=>['id'=>1,'hostel_name'=>'Pearl Student Hostel','location'=>'Kakoba, 0.3km from MUST Gate','room_type'=>'single','price'=>850000,'image'=>'image1.jpg','description'=>'Pearl Student Hostel offers clean, modern single rooms ideal for focused students. Each room comes with a study desk, wardrobe, and secure lock. 24/7 security guard on site. Located just a 5-minute walk from the main MUST gate.','availability'=>5,'contact'=>'+256 700 111 222'],
+        2=>['id'=>2,'hostel_name'=>'Unity Residence','location'=>'Ruharo, 0.5km from MUST','room_type'=>'shared','price'=>900000,'image'=>'image2.jpg.png','description'=>'Unity Residence offers affordable shared rooms for two students. A great community feel with common sitting area, shared bathrooms, and reliable water supply. Perfect for students on a budget.','availability'=>8,'contact'=>'+256 700 333 444'],
+        3=>['id'=>3,'hostel_name'=>'Comfort Suites','location'=>'Kakoba, 0.4km from MUST','room_type'=>'self-contained','price'=>1200000,'image'=>'image3.jpg.png','description'=>'Fully self-contained suites with en-suite bathroom, private kitchen space, and living area. Ideal for students who want independence and privacy. Includes electricity and water.','availability'=>3,'contact'=>'+256 701 555 666'],
     ];
     $h = $demo_data[$id] ?? $demo_data[1];
     $h['contact'] = $h['contact'] ?? '+256 700 000 000';
@@ -68,9 +68,11 @@ include 'includes/head.php';
                 <div class="detail-hero">
                     <div class="detail-img">
                         <?php if (!empty($h['image']) && file_exists('uploads/hostels/' . $h['image'])): ?>
-                            <img src="<?= APP_URL ?>/uploads/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>">
+                            <img src="<?= APP_URL ?>/uploads/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <?php elseif (!empty($h['image']) && file_exists('assets/img/hostels/' . $h['image'])): ?>
+                            <img src="<?= APP_URL ?>/assets/img/hostels/<?= sanitize($h['image']) ?>" alt="<?= sanitize($h['hostel_name']) ?>" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                         <?php else: ?>
-                            <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/building.svg" alt="Hostel">
+                            <img class="icon-svg" src="<?= APP_URL ?>/assets/svg/building.svg" alt="Hostel" style="width: 3.5rem; height: auto;">
                         <?php endif; ?>
                     </div>
                     <div class="detail-body">

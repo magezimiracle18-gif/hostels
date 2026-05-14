@@ -10,7 +10,7 @@ $page_title = $page_title ?? APP_NAME;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MUST Hostel Finder - Find and book student accommodation near Mbarara University of Science and Technology campus.">
+    <meta name="description" content="Hostel Mate - Find and book student accommodation near Mbarara University of Science and Technology campus.">
     <title><?= htmlspecialchars($page_title) ?> | <?= APP_NAME ?></title>
     <link rel="stylesheet" href="<?= APP_URL ?>/css/style.css">
     <!-- Google Fonts preconnect for speed -->
@@ -18,3 +18,4 @@ $page_title = $page_title ?? APP_NAME;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+
